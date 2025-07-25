@@ -1,1 +1,0 @@
-curl.exe -X POST -F "text=Hello, world" -F "language=en-US" -F "documents=@dummy.pdf" http://127.0.0.1:5001/generate-speech

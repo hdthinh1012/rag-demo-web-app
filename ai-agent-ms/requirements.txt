@@ -1,1 +1,7 @@
-Flask==2.2.2 
+flask
+google-genai
+pypdf2
+numpy
+pandas
+scikit-learn
+tenacity 

@@ -1,0 +1,10 @@
+# Service Account Key
+ai-agent-ms-credentials.json
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+.vscode/ 
