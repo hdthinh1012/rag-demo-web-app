@@ -744,14 +744,14 @@ async def generate_answer(
         ]:
             return "Can't Process, Quota Issues"
 
-        prompt = f"""Based on the following context, please answer the question.
-
-        Context:
+        prompt = f"""Optional Context (if not found, answer with what you have trained with):
         {context}
 
         Question: {query}
 
         Answer:"""
+
+        app.logger.info(f"Prompt: {prompt}")
 
         if modality == "text":
             # Generate text answer using LLM

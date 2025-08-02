@@ -1,26 +1,8 @@
 {
-  "./files-db\\1754126430903_gemini_v2_5_report.pdf": {
-    "hash": "a7089184320b391a358ac814d774c541",
-    "size": 10128209,
-    "mtime": 1754126430.9213219,
-    "path": "./files-db\\1754126430903_gemini_v2_5_report.pdf"
-  },
-  "./files-db\\1754129916898_claude_4_sonnet_opus.pdf": {
-    "hash": "17a1888054baf26d89d6b80acdc3be65",
-    "size": 4876911,
-    "mtime": 1754129916.906132,
-    "path": "./files-db\\1754129916898_claude_4_sonnet_opus.pdf"
-  },
-  "./files-db\\1754131089692_HuynhDucThinh-updated-cv.pdf": {
+  "./files-db\\1754136377225_HuynhDucThinh-updated-cv.pdf": {
     "hash": "f613865595e4ee31d352b35cce095673",
     "size": 80301,
-    "mtime": 1754131089.693519,
-    "path": "./files-db\\1754131089692_HuynhDucThinh-updated-cv.pdf"
-  },
-  "./files-db\\1754131223211_HuynhDucThinh-updated-cv.pdf": {
-    "hash": "f613865595e4ee31d352b35cce095673",
-    "size": 80301,
-    "mtime": 1754131223.211465,
-    "path": "./files-db\\1754131223211_HuynhDucThinh-updated-cv.pdf"
+    "mtime": 1754136377.2258193,
+    "path": "./files-db\\1754136377225_HuynhDucThinh-updated-cv.pdf"
   }
 }

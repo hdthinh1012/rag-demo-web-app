@@ -608,7 +608,7 @@ def generate_answer_with_text(
         ]:
             return "I apologize, but I'm currently unable to process your query due to technical issues. Please try again later."
 
-        prompt = f"""Based on the following context, please answer the question comprehensively and accurately.
+        prompt = f"""Based on the following context, please answer the question comprehensively and accurately. If not found necessary information in the context, answer with what you have been trained with.
 
 Context:
 {context}

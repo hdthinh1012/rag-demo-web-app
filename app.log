@@ -3396,3 +3396,149 @@ TypeError: Client.__init__() got an unexpected keyword argument 'service_account
 2025-08-02 17:43:00,138 INFO app Generating text response...
 2025-08-02 17:43:02,772 INFO app Text response generated successfully
 2025-08-02 17:43:02,774 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 17:43:02] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 18:53:49,474 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-02 18:53:49,477 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-08-02 18:54:32,990 DEBUG app Received request: ImmutableMultiDict([('query', 'Who is Huynh Duc Thinh?')])
+2025-08-02 18:54:32,990 DEBUG app Files in request: ImmutableMultiDict([('files', <FileStorage: 'HuynhDucThinh-updated-cv.pdf' ('application/pdf')>)])
+2025-08-02 18:54:32,990 DEBUG app Query: Who is Huynh Duc Thinh?
+2025-08-02 18:54:32,991 DEBUG app Files: [<FileStorage: 'HuynhDucThinh-updated-cv.pdf' ('application/pdf')>]
+2025-08-02 18:54:32,991 INFO app Processing query: Who is Huynh Duc Thinh?
+2025-08-02 18:54:32,993 INFO app New files uploaded: ['1754135672991_HuynhDucThinh-updated-cv.pdf']
+2025-08-02 18:54:41,086 WARNING google.auth._default No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-08-02 18:55:57,497 INFO app Generating text response...
+2025-08-02 18:56:05,349 INFO app Text response generated successfully
+2025-08-02 18:56:05,353 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 18:56:05] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 18:56:15,616 DEBUG app Received request: ImmutableMultiDict([('query', 'Which university did Huynh Duc Thinh do to?')])
+2025-08-02 18:56:15,616 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 18:56:15,616 DEBUG app Query: Which university did Huynh Duc Thinh do to?
+2025-08-02 18:56:15,617 DEBUG app Files: []
+2025-08-02 18:56:15,617 INFO app Processing query: Which university did Huynh Duc Thinh do to?
+2025-08-02 18:56:21,826 INFO app Generating text response...
+2025-08-02 18:56:24,079 INFO app Text response generated successfully
+2025-08-02 18:56:24,080 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 18:56:24] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 18:57:22,586 DEBUG app Received request: ImmutableMultiDict([('query', 'Which university did Thinh go to?')])
+2025-08-02 18:57:22,586 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 18:57:22,586 DEBUG app Query: Which university did Thinh go to?
+2025-08-02 18:57:22,587 DEBUG app Files: []
+2025-08-02 18:57:22,587 INFO app Processing query: Which university did Thinh go to?
+2025-08-02 18:57:23,443 INFO app Generating text response...
+2025-08-02 18:57:24,974 INFO app Text response generated successfully
+2025-08-02 18:57:24,974 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 18:57:24] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 19:05:39,803 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-02 19:05:39,804 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-08-02 19:06:17,224 DEBUG app Received request: ImmutableMultiDict([('query', "What is Thinh's surname?")])
+2025-08-02 19:06:17,224 DEBUG app Files in request: ImmutableMultiDict([('files', <FileStorage: 'HuynhDucThinh-updated-cv.pdf' ('application/pdf')>)])
+2025-08-02 19:06:17,224 DEBUG app Query: What is Thinh's surname?
+2025-08-02 19:06:17,225 DEBUG app Files: [<FileStorage: 'HuynhDucThinh-updated-cv.pdf' ('application/pdf')>]
+2025-08-02 19:06:17,225 INFO app Processing query: What is Thinh's surname?
+2025-08-02 19:06:17,226 INFO app New files uploaded: ['1754136377225_HuynhDucThinh-updated-cv.pdf']
+2025-08-02 19:06:25,547 WARNING google.auth._default No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-08-02 19:07:09,636 INFO app Generating text response...
+2025-08-02 19:07:11,497 INFO app Text response generated successfully
+2025-08-02 19:07:11,499 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 19:07:11] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 19:12:36,599 DEBUG app Received request: ImmutableMultiDict([('query', 'Which company Thinh worked for?')])
+2025-08-02 19:12:36,600 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 19:12:36,600 DEBUG app Query: Which company Thinh worked for?
+2025-08-02 19:12:36,600 DEBUG app Files: []
+2025-08-02 19:12:36,601 INFO app Processing query: Which company Thinh worked for?
+2025-08-02 19:12:41,801 INFO app Generating text response...
+2025-08-02 19:12:43,552 INFO app Text response generated successfully
+2025-08-02 19:12:43,554 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 19:12:43] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 19:14:22,030 DEBUG app Received request: ImmutableMultiDict([('query', 'Where does Thinh live')])
+2025-08-02 19:14:22,030 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 19:14:22,030 DEBUG app Query: Where does Thinh live
+2025-08-02 19:14:22,031 DEBUG app Files: []
+2025-08-02 19:14:22,031 INFO app Processing query: Where does Thinh live
+2025-08-02 19:14:41,764 INFO app Generating text response...
+2025-08-02 19:14:45,885 INFO app Text response generated successfully
+2025-08-02 19:14:45,885 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 19:14:45] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 19:19:02,622 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-02 19:19:02,624 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-08-02 19:19:34,364 DEBUG app Received request: ImmutableMultiDict([('query', 'Where does Thinh live')])
+2025-08-02 19:19:34,365 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 19:19:34,365 DEBUG app Query: Where does Thinh live
+2025-08-02 19:19:34,365 DEBUG app Files: []
+2025-08-02 19:19:34,365 INFO app Processing query: Where does Thinh live
+2025-08-02 19:19:46,353 WARNING google.auth._default No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-08-02 19:19:47,543 INFO app Generating text response...
+2025-08-02 19:19:50,481 INFO app Text response generated successfully
+2025-08-02 19:19:50,486 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 19:19:50] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 19:20:04,600 DEBUG app Received request: ImmutableMultiDict([('query', 'Which company did Thinh work for?')])
+2025-08-02 19:20:04,601 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 19:20:04,601 DEBUG app Query: Which company did Thinh work for?
+2025-08-02 19:20:04,601 DEBUG app Files: []
+2025-08-02 19:20:04,601 INFO app Processing query: Which company did Thinh work for?
+2025-08-02 19:21:23,591 INFO app Generating text response...
+2025-08-02 19:21:25,643 INFO app Text response generated successfully
+2025-08-02 19:21:25,645 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 19:21:25] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 19:21:43,328 DEBUG app Received request: ImmutableMultiDict([('query', 'Newest version of Gemini')])
+2025-08-02 19:21:43,328 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 19:21:43,329 DEBUG app Query: Newest version of Gemini
+2025-08-02 19:21:43,329 DEBUG app Files: []
+2025-08-02 19:21:43,330 INFO app Processing query: Newest version of Gemini
+2025-08-02 19:22:33,095 INFO app Generating text response...
+2025-08-02 19:22:34,826 INFO app Text response generated successfully
+2025-08-02 19:22:34,829 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 19:22:34] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 19:25:08,097 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-02 19:25:08,098 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-08-02 19:25:20,725 DEBUG app Received request: ImmutableMultiDict([('query', 'Newest version of Gemini')])
+2025-08-02 19:25:20,725 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 19:25:20,725 DEBUG app Query: Newest version of Gemini
+2025-08-02 19:25:20,725 DEBUG app Files: []
+2025-08-02 19:25:20,725 INFO app Processing query: Newest version of Gemini
+2025-08-02 19:25:20,744 WARNING google.auth._default No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-08-02 19:25:21,879 INFO app Generating text response...
+2025-08-02 19:25:23,843 INFO app Text response generated successfully
+2025-08-02 19:25:23,846 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 19:25:23] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 19:25:44,453 DEBUG app Received request: ImmutableMultiDict([('query', 'Newest version of Gemini, answer even if there is no answer in context')])
+2025-08-02 19:25:44,453 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 19:25:44,453 DEBUG app Query: Newest version of Gemini, answer even if there is no answer in context
+2025-08-02 19:25:44,454 DEBUG app Files: []
+2025-08-02 19:25:44,454 INFO app Processing query: Newest version of Gemini, answer even if there is no answer in context
+2025-08-02 19:25:45,229 INFO app Generating text response...
+2025-08-02 19:25:46,824 INFO app Text response generated successfully
+2025-08-02 19:25:46,825 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 19:25:46] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 19:26:06,726 DEBUG app Received request: ImmutableMultiDict([('query', 'What is newest version of Gemini? answer the question even if there is no answer in context')])
+2025-08-02 19:26:06,727 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 19:26:06,727 DEBUG app Query: What is newest version of Gemini? answer the question even if there is no answer in context
+2025-08-02 19:26:06,728 DEBUG app Files: []
+2025-08-02 19:26:06,728 INFO app Processing query: What is newest version of Gemini? answer the question even if there is no answer in context
+2025-08-02 19:26:07,409 INFO app Generating text response...
+2025-08-02 19:26:10,010 INFO app Text response generated successfully
+2025-08-02 19:26:10,011 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 19:26:10] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 19:27:15,403 DEBUG app Received request: ImmutableMultiDict([('query', 'What is newest version of Gemini?')])
+2025-08-02 19:27:15,404 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 19:27:15,404 DEBUG app Query: What is newest version of Gemini?
+2025-08-02 19:27:15,404 DEBUG app Files: []
+2025-08-02 19:27:15,405 INFO app Processing query: What is newest version of Gemini?
+2025-08-02 19:27:16,129 INFO app Generating text response...
+2025-08-02 19:27:18,234 INFO app Text response generated successfully
+2025-08-02 19:27:18,234 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 19:27:18] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 19:27:39,983 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-02 19:27:39,985 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-08-02 19:27:54,472 DEBUG app Received request: ImmutableMultiDict([('query', 'What is newest version of Gemini?')])
+2025-08-02 19:27:54,472 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 19:27:54,473 DEBUG app Query: What is newest version of Gemini?
+2025-08-02 19:27:54,473 DEBUG app Files: []
+2025-08-02 19:27:54,474 INFO app Processing query: What is newest version of Gemini?
+2025-08-02 19:27:54,517 WARNING google.auth._default No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-08-02 19:27:55,759 INFO app Generating text response...
+2025-08-02 19:27:59,586 INFO app Text response generated successfully
+2025-08-02 19:27:59,589 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 19:27:59] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 19:29:16,561 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-02 19:29:16,563 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-08-02 19:29:17,042 DEBUG app Received request: ImmutableMultiDict([('query', 'What is newest version of Gemini?')])
+2025-08-02 19:29:17,043 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 19:29:17,043 DEBUG app Query: What is newest version of Gemini?
+2025-08-02 19:29:17,043 DEBUG app Files: []
+2025-08-02 19:29:17,043 INFO app Processing query: What is newest version of Gemini?
+2025-08-02 19:29:17,072 WARNING google.auth._default No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-08-02 19:29:19,202 INFO app Generating text response...
+2025-08-02 19:29:21,467 INFO app Text response generated successfully
+2025-08-02 19:29:21,472 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 19:29:21] "POST /generate-response HTTP/1.1" 200 -

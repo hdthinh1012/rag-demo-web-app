@@ -7,6 +7,7 @@ import threading
 from concurrent.futures import ThreadPoolExecutor
 
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from werkzeug.utils import secure_filename
 import PyPDF2
 import numpy as np
@@ -36,6 +37,20 @@ logging.basicConfig(
 )
 
 app = Flask(__name__)
+
+# CORS Configuration - Allow frontend to communicate with backend
+CORS(app, resources={
+    r"/*": {
+        "origins": [
+            "http://localhost:3000",  # Next.js development server
+            "http://127.0.0.1:3000",  # Alternative localhost
+            "http://192.168.1.26:3000"  # Network access (adjust IP as needed)
+        ],
+        "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"],
+        "supports_credentials": True
+    }
+})
 
 # Configuration
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
