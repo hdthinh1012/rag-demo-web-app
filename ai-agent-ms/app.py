@@ -3,11 +3,10 @@ import asyncio
 import glob
 import time
 from typing import Any
-import tempfile
 import threading
 from concurrent.futures import ThreadPoolExecutor
 
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
 import PyPDF2
 import numpy as np
@@ -60,6 +59,8 @@ from setup import (
     build_index, 
     get_relevant_chunks, 
     generate_answer_with_audio,
+    generate_answer_with_text,
+    generate_text_content,
     load_or_build_vector_db,
     get_storage_info
 )
@@ -146,12 +147,13 @@ def rebuild_index(force_rebuild: bool = False):
         app.logger.error(f"Index rebuild error: {str(e)}", exc_info=True)
         return False
 
-@app.route('/generate-speech', methods=['POST'])
-def generate_speech():
+@app.route('/generate-response', methods=['POST'])
+def generate_response():
     """
     POST endpoint to handle form-data request with query and files
     - query: string - the user's question
     - files: multiple PDF files to upload and process
+    Returns: JSON with text response based on the uploaded documents
     """
     app.logger.debug(f"Received request: {request.form}")
     app.logger.debug(f"Files in request: {request.files}")
@@ -210,40 +212,25 @@ def generate_speech():
         if "Error" in relevant_context or "quota issues" in relevant_context:
             return jsonify({'error': f'Failed to retrieve context: {relevant_context}'}), 500
         
-        # Generate audio response using the executor to handle async calls
-        future = executor.submit(
-            run_async,
-            generate_answer_with_audio(query, relevant_context, client, MODEL)
-        )
+        # Generate text response
+        app.logger.info("Generating text response...")
+        text_response = generate_answer_with_text(query, relevant_context, client, MODEL)
         
-        audio_data = future.result(timeout=60)  # 60 second timeout
+        if not text_response or text_response.startswith("Service temporarily unavailable"):
+            return jsonify({'error': 'Failed to generate text response'}), 500
         
-        if audio_data is None:
-            return jsonify({'error': 'Failed to generate audio response'}), 500
+        app.logger.info("Text response generated successfully")
         
-        # Save audio data to temporary file
-        temp_audio_file = tempfile.NamedTemporaryFile(delete=False, suffix='.wav')
-        
-        # Convert numpy array to wav format (simple PCM)
-        import wave
-        with wave.open(temp_audio_file.name, 'wb') as wav_file:
-            wav_file.setnchannels(1)  # Mono
-            wav_file.setsampwidth(2)  # 16-bit
-            wav_file.setframerate(24000)  # 24kHz sample rate
-            wav_file.writeframes(audio_data.tobytes())
-        
-        # Return the audio file
-        return send_file(
-            temp_audio_file.name,
-            mimetype='audio/wav',
-            as_attachment=True,
-            download_name=f'response_{int(time.time())}.wav',
-            conditional=False
-        )
-        app.logger.info(f"Audio file generated successfully: {temp_audio_file.name}")
+        # Return the text response as JSON
+        return jsonify({
+            'response': text_response,
+            'query': query,
+            'timestamp': int(time.time()),
+            'context_chunks': len(relevant_context.split('\n\n')) if relevant_context else 0
+        })
         
     except Exception as e:
-        app.logger.error(f"Error in generate_speech: {str(e)}", exc_info=True)
+        app.logger.error(f"Error in generate_response: {str(e)}", exc_info=True)
         return jsonify({'error': f'Internal server error: {str(e)}'}), 500
 
 @app.route('/health', methods=['GET'])

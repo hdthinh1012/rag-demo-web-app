@@ -3256,3 +3256,143 @@ TypeError: Client.__init__() got an unexpected keyword argument 'service_account
 2025-08-02 16:56:35,904 DEBUG app Files: []
 2025-08-02 16:56:35,905 INFO app Processing query: What is the newest version of Gemini?
 2025-08-02 16:56:37,695 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 16:56:37] "[35m[1mPOST /generate-speech HTTP/1.1[0m" 500 -
+2025-08-02 17:13:11,158 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-02 17:13:11,158 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-08-02 17:13:21,400 DEBUG app Received request: ImmutableMultiDict([('query', 'What is the newest version of Gemini?')])
+2025-08-02 17:13:21,400 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 17:13:21,400 DEBUG app Query: What is the newest version of Gemini?
+2025-08-02 17:13:21,400 DEBUG app Files: []
+2025-08-02 17:13:21,401 INFO app Processing query: What is the newest version of Gemini?
+2025-08-02 17:13:25,637 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 17:13:25] "[35m[1mPOST /generate-speech HTTP/1.1[0m" 500 -
+2025-08-02 17:16:16,133 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-02 17:16:16,134 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-08-02 17:16:21,296 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 17:16:21] "[33mPOST /generate-speech HTTP/1.1[0m" 404 -
+2025-08-02 17:16:30,966 DEBUG app Received request: ImmutableMultiDict([('query', 'What is the newest version of Gemini?')])
+2025-08-02 17:16:30,966 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 17:16:30,967 DEBUG app Query: What is the newest version of Gemini?
+2025-08-02 17:16:30,967 DEBUG app Files: []
+2025-08-02 17:16:30,967 INFO app Processing query: What is the newest version of Gemini?
+2025-08-02 17:16:33,377 INFO app Generating text response...
+2025-08-02 17:16:51,576 INFO app Text response generated successfully
+2025-08-02 17:16:51,577 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 17:16:51] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 17:17:12,556 DEBUG app Received request: ImmutableMultiDict([('query', 'What is the newest version of Gemini?')])
+2025-08-02 17:17:12,556 DEBUG app Files in request: ImmutableMultiDict([('files', <FileStorage: 'claude_4_sonnet_opus.pdf' ('application/pdf')>)])
+2025-08-02 17:17:12,556 DEBUG app Query: What is the newest version of Gemini?
+2025-08-02 17:17:12,556 DEBUG app Files: [<FileStorage: 'claude_4_sonnet_opus.pdf' ('application/pdf')>]
+2025-08-02 17:17:12,557 INFO app Processing query: What is the newest version of Gemini?
+2025-08-02 17:17:12,567 INFO app New files uploaded: ['1754129832557_claude_4_sonnet_opus.pdf']
+2025-08-02 17:18:04,809 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-02 17:18:04,809 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-08-02 17:18:36,897 DEBUG app Received request: ImmutableMultiDict([('query', 'What is the newest version of Claude Sonnet?')])
+2025-08-02 17:18:36,897 DEBUG app Files in request: ImmutableMultiDict([('files', <FileStorage: 'claude_4_sonnet_opus.pdf' ('application/pdf')>)])
+2025-08-02 17:18:36,897 DEBUG app Query: What is the newest version of Claude Sonnet?
+2025-08-02 17:18:36,897 DEBUG app Files: [<FileStorage: 'claude_4_sonnet_opus.pdf' ('application/pdf')>]
+2025-08-02 17:18:36,897 INFO app Processing query: What is the newest version of Claude Sonnet?
+2025-08-02 17:18:36,907 INFO app New files uploaded: ['1754129916898_claude_4_sonnet_opus.pdf']
+2025-08-02 17:20:32,687 INFO app Generating text response...
+2025-08-02 17:20:36,112 INFO app Text response generated successfully
+2025-08-02 17:20:36,115 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 17:20:36] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 17:21:42,559 DEBUG app Received request: ImmutableMultiDict([('query', 'What is my salary in VND?')])
+2025-08-02 17:21:42,559 DEBUG app Files in request: ImmutableMultiDict([('files', <FileStorage: 'claude_4_sonnet_opus.pdf' ('application/pdf')>)])
+2025-08-02 17:21:42,559 DEBUG app Query: What is my salary in VND?
+2025-08-02 17:21:42,560 DEBUG app Files: [<FileStorage: 'claude_4_sonnet_opus.pdf' ('application/pdf')>]
+2025-08-02 17:21:42,560 INFO app Processing query: What is my salary in VND?
+2025-08-02 17:21:42,569 INFO app New files uploaded: ['1754130102560_claude_4_sonnet_opus.pdf']
+2025-08-02 17:22:19,456 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-02 17:22:19,457 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-08-02 17:22:22,358 DEBUG app Received request: ImmutableMultiDict([('query', 'What is my salary in VND?')])
+2025-08-02 17:22:22,359 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 17:22:22,359 DEBUG app Query: What is my salary in VND?
+2025-08-02 17:22:22,359 DEBUG app Files: []
+2025-08-02 17:22:22,359 INFO app Processing query: What is my salary in VND?
+2025-08-02 17:22:25,062 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 17:22:25] "[35m[1mPOST /generate-response HTTP/1.1[0m" 500 -
+2025-08-02 17:22:46,291 DEBUG app Received request: ImmutableMultiDict([('query', 'What is the newest version of Claude Sonnet?')])
+2025-08-02 17:22:46,291 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 17:22:46,291 DEBUG app Query: What is the newest version of Claude Sonnet?
+2025-08-02 17:22:46,292 DEBUG app Files: []
+2025-08-02 17:22:46,292 INFO app Processing query: What is the newest version of Claude Sonnet?
+2025-08-02 17:22:47,139 INFO app Generating text response...
+2025-08-02 17:22:52,281 INFO app Text response generated successfully
+2025-08-02 17:22:52,282 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 17:22:52] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 17:23:00,923 DEBUG app Received request: ImmutableMultiDict([('query', 'What is the previous version of Claude Sonnet?')])
+2025-08-02 17:23:00,923 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 17:23:00,923 DEBUG app Query: What is the previous version of Claude Sonnet?
+2025-08-02 17:23:00,923 DEBUG app Files: []
+2025-08-02 17:23:00,923 INFO app Processing query: What is the previous version of Claude Sonnet?
+2025-08-02 17:23:01,600 INFO app Generating text response...
+2025-08-02 17:23:06,409 INFO app Text response generated successfully
+2025-08-02 17:23:06,410 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 17:23:06] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 17:23:17,171 DEBUG app Received request: ImmutableMultiDict([('query', 'What is the previous version of Gemini?')])
+2025-08-02 17:23:17,172 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 17:23:17,172 DEBUG app Query: What is the previous version of Gemini?
+2025-08-02 17:23:17,172 DEBUG app Files: []
+2025-08-02 17:23:17,172 INFO app Processing query: What is the previous version of Gemini?
+2025-08-02 17:23:18,164 INFO app Generating text response...
+2025-08-02 17:23:26,161 INFO app Text response generated successfully
+2025-08-02 17:23:26,161 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 17:23:26] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 17:23:45,270 DEBUG app Received request: ImmutableMultiDict([('query', 'What is my salary')])
+2025-08-02 17:23:45,270 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 17:23:45,270 DEBUG app Query: What is my salary
+2025-08-02 17:23:45,271 DEBUG app Files: []
+2025-08-02 17:23:45,271 INFO app Processing query: What is my salary
+2025-08-02 17:23:46,306 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 17:23:46] "[35m[1mPOST /generate-response HTTP/1.1[0m" 500 -
+2025-08-02 17:24:19,682 DEBUG app Received request: ImmutableMultiDict([('query', 'What is my salary')])
+2025-08-02 17:24:19,683 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 17:24:19,684 DEBUG app Query: What is my salary
+2025-08-02 17:24:19,684 DEBUG app Files: []
+2025-08-02 17:24:19,685 INFO app Processing query: What is my salary
+2025-08-02 17:26:11,782 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 17:26:11] "[35m[1mPOST /generate-response HTTP/1.1[0m" 500 -
+2025-08-02 17:27:05,696 DEBUG app Received request: ImmutableMultiDict([('query', 'What is the previous version of Gemini')])
+2025-08-02 17:27:05,697 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 17:27:05,697 DEBUG app Query: What is the previous version of Gemini
+2025-08-02 17:27:05,697 DEBUG app Files: []
+2025-08-02 17:27:05,697 INFO app Processing query: What is the previous version of Gemini
+2025-08-02 17:28:20,147 INFO app Generating text response...
+2025-08-02 17:28:29,833 INFO app Text response generated successfully
+2025-08-02 17:28:29,834 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 17:28:29] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 17:28:40,005 DEBUG app Received request: ImmutableMultiDict([('query', 'What is my name?')])
+2025-08-02 17:28:40,005 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 17:28:40,006 DEBUG app Query: What is my name?
+2025-08-02 17:28:40,006 DEBUG app Files: []
+2025-08-02 17:28:40,006 INFO app Processing query: What is my name?
+2025-08-02 17:33:59,908 INFO app Generating text response...
+2025-08-02 17:34:05,047 INFO app Text response generated successfully
+2025-08-02 17:34:05,048 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 17:34:05] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 17:38:09,691 DEBUG app Received request: ImmutableMultiDict([('query', 'What is my name?')])
+2025-08-02 17:38:09,691 DEBUG app Files in request: ImmutableMultiDict([('files', <FileStorage: 'HuynhDucThinh-updated-cv.pdf' ('application/pdf')>)])
+2025-08-02 17:38:09,692 DEBUG app Query: What is my name?
+2025-08-02 17:38:09,692 DEBUG app Files: [<FileStorage: 'HuynhDucThinh-updated-cv.pdf' ('application/pdf')>]
+2025-08-02 17:38:09,692 INFO app Processing query: What is my name?
+2025-08-02 17:38:09,694 INFO app New files uploaded: ['1754131089692_HuynhDucThinh-updated-cv.pdf']
+2025-08-02 17:39:52,125 INFO app Generating text response...
+2025-08-02 17:39:57,522 INFO app Text response generated successfully
+2025-08-02 17:39:57,524 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 17:39:57] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 17:40:23,210 DEBUG app Received request: ImmutableMultiDict([('query', 'Who is Huynh Duc Thinh?')])
+2025-08-02 17:40:23,210 DEBUG app Files in request: ImmutableMultiDict([('files', <FileStorage: 'HuynhDucThinh-updated-cv.pdf' ('application/pdf')>)])
+2025-08-02 17:40:23,211 DEBUG app Query: Who is Huynh Duc Thinh?
+2025-08-02 17:40:23,211 DEBUG app Files: [<FileStorage: 'HuynhDucThinh-updated-cv.pdf' ('application/pdf')>]
+2025-08-02 17:40:23,211 INFO app Processing query: Who is Huynh Duc Thinh?
+2025-08-02 17:40:23,212 INFO app New files uploaded: ['1754131223211_HuynhDucThinh-updated-cv.pdf']
+2025-08-02 17:40:51,076 INFO app Generating text response...
+2025-08-02 17:41:00,679 INFO app Text response generated successfully
+2025-08-02 17:41:00,680 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 17:41:00] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 17:41:45,834 DEBUG app Received request: ImmutableMultiDict([('query', 'Who is Huynh Duc Thinh?')])
+2025-08-02 17:41:45,834 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 17:41:45,835 DEBUG app Query: Who is Huynh Duc Thinh?
+2025-08-02 17:41:45,835 DEBUG app Files: []
+2025-08-02 17:41:45,835 INFO app Processing query: Who is Huynh Duc Thinh?
+2025-08-02 17:42:03,007 INFO app Generating text response...
+2025-08-02 17:42:11,693 INFO app Text response generated successfully
+2025-08-02 17:42:11,694 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 17:42:11] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 17:42:37,127 DEBUG app Received request: ImmutableMultiDict([('query', 'Who is Hoang Anh Le?')])
+2025-08-02 17:42:37,128 DEBUG app Files in request: ImmutableMultiDict([])
+2025-08-02 17:42:37,128 DEBUG app Query: Who is Hoang Anh Le?
+2025-08-02 17:42:37,128 DEBUG app Files: []
+2025-08-02 17:42:37,128 INFO app Processing query: Who is Hoang Anh Le?
+2025-08-02 17:43:00,138 INFO app Generating text response...
+2025-08-02 17:43:02,772 INFO app Text response generated successfully
+2025-08-02 17:43:02,774 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 17:43:02] "POST /generate-response HTTP/1.1" 200 -

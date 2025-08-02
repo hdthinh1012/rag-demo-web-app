@@ -194,7 +194,7 @@ def setup_genai_client(app):
             location=LOCATION
         )
         
-        MODEL_ID = "gemini-2.0-flash-live-001"
+        MODEL_ID = "gemini-2.5-flash"
         MODEL = f"projects/{PROJECT_ID}/locations/{LOCATION}/publishers/google/models/{MODEL_ID}"
         text_embedding_model = "gemini-embedding-001"
 
@@ -567,6 +567,66 @@ async def generate_answer_with_audio(
             return None
         print(f"Error generating answer: {str(e)}")
         return None
+
+# Section 3.4: Setup Text Generation (Alternative to Audio)
+def generate_text_content(query: str, client: Any, model: str) -> str:
+    """Function to generate text response for provided query using Gemini API."""
+    try:
+        # Use the standard Gemini API for text generation
+        response = client.models.generate_content(
+            model=model,
+            contents=[query],
+            config=types.GenerateContentConfig(
+                temperature=0.7,
+                max_output_tokens=2048,
+                top_p=0.9,
+                top_k=40
+            )
+        )
+        
+        if response and response.text:
+            return response.text.strip()
+        else:
+            print("Warning: Empty response from Gemini API")
+            return "I apologize, but I couldn't generate a response at this time."
+            
+    except Exception as e:
+        print(f"Error generating text content: {str(e)}")
+        if "RESOURCE_EXHAUSTED" in str(e):
+            return "Service temporarily unavailable due to quota limits. Please try again later."
+        return f"Error generating response: {str(e)}"
+
+@retry(wait=wait_random_exponential(multiplier=1, max=120), stop=stop_after_attempt(4))
+def generate_answer_with_text(
+    query: str, context: str, llm_client: Any, model: str
+) -> str:
+    """Generate text answer using LLM with retry logic for API quota management."""
+    try:
+        if context in [
+            "Could not process query due to quota issues",
+            "Error retrieving relevant chunks",
+        ]:
+            return "I apologize, but I'm currently unable to process your query due to technical issues. Please try again later."
+
+        prompt = f"""Based on the following context, please answer the question comprehensively and accurately.
+
+Context:
+{context}
+
+Question: {query}
+
+Please provide a detailed answer based on the context provided above. If the context doesn't contain enough information to fully answer the question, please indicate what information is missing.
+
+Answer:"""
+
+        text_response = generate_text_content(prompt, llm_client, model)
+        return text_response
+
+    except Exception as e:
+        if "RESOURCE_EXHAUSTED" in str(e):
+            return "Service temporarily unavailable due to quota limits. Please try again later."
+        print(f"Error generating text answer: {str(e)}")
+        return f"I apologize, but I encountered an error while generating the response: {str(e)}"
 
 class IndexBuildThrottle:
     """Throttle mechanism for build_index operations"""

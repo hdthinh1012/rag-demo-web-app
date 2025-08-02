@@ -1,2 +1,5 @@
 credentials/**
 .env
+files-db/**
+vector_db_storage/**
+app.log
