@@ -1,0 +1,173 @@
+# AI Agent Microservice - RAG with Speech Generation
+
+A Flask microservice that implements Retrieval Augmented Generation (RAG) with speech generation capabilities using Google's Gemini 2.5 Live API.
+
+## Features
+
+- **File Upload & Processing**: Upload PDF files via form-data requests
+- **RAG Pipeline**: Automatic document indexing and retrieval
+- **Speech Generation**: Generate audio responses using Gemini 2.5 Live API
+- **Vector Database**: In-memory vector database for document similarity search
+- **REST API**: Simple REST endpoints for interaction
+
+## Setup
+
+### 1. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Environment Configuration
+
+Copy the environment template and configure your Google Cloud settings:
+
+```bash
+cp env.template .env
+```
+
+Edit `.env` file with your Google Cloud project details:
+```bash
+PROJECT_ID=your-google-cloud-project-id
+LOCATION=asia-southeast1
+```
+
+### 3. Google Cloud Authentication
+
+Make sure you have Google Cloud SDK installed and authenticated:
+
+```bash
+gcloud auth application-default login
+```
+
+Or set up a service account key:
+```bash
+export GOOGLE_APPLICATION_CREDENTIALS=path/to/your/service-account-key.json
+```
+
+## Usage
+
+### Start the Server
+
+```bash
+python app.py
+```
+
+The server will start on `http://localhost:5000`
+
+### API Endpoints
+
+#### POST `/generate-speech`
+
+Generate speech response based on uploaded documents and query.
+
+**Request:**
+- Method: POST
+- Content-Type: multipart/form-data
+- Parameters:
+  - `query` (string): The question to ask
+  - `files` (file[]): PDF files to upload and process
+
+**Response:**
+- Content-Type: audio/wav
+- Returns: Audio file with the generated speech response
+
+**Example using curl:**
+
+```bash
+curl -X POST http://localhost:5000/generate-speech \
+  -F "query=What is the main topic of the document?" \
+  -F "files=@document1.pdf" \
+  -F "files=@document2.pdf" \
+  -o response.wav
+```
+
+#### GET `/health`
+
+Health check endpoint.
+
+**Response:**
+```json
+{
+  "status": "healthy",
+  "rag_initialized": true,
+  "documents_indexed": true,
+  "upload_folder": "./files-db",
+  "pdf_files_count": 2
+}
+```
+
+#### GET `/files`
+
+List all uploaded files.
+
+**Response:**
+```json
+{
+  "files": [
+    {
+      "filename": "1234567890_document.pdf",
+      "size": 1024000,
+      "modified": 1703123456.789
+    }
+  ],
+  "total_count": 1
+}
+```
+
+## Architecture
+
+### RAG Pipeline
+
+1. **Document Processing**: PDF files are processed and split into chunks
+2. **Embedding Generation**: Text chunks are converted to embeddings using Gemini embedding model
+3. **Vector Database**: Embeddings are stored in an in-memory pandas DataFrame
+4. **Retrieval**: Query embeddings are matched against document embeddings using cosine similarity
+5. **Generation**: Relevant context is used to generate audio responses via Gemini 2.5 Live API
+
+### File Management
+
+- Uploaded files are stored in `./files-db/` directory
+- Files are automatically timestamped to prevent naming conflicts
+- Supported formats: PDF
+- Maximum file size: 16MB per file
+
+## Configuration
+
+### Environment Variables
+
+- `PROJECT_ID`: Google Cloud project ID
+- `LOCATION`: Google Cloud region (default: asia-southeast1)
+- `GOOGLE_APPLICATION_CREDENTIALS`: Path to service account key (optional)
+
+### Flask Settings
+
+- Debug mode: Enabled by default
+- Host: 0.0.0.0 (accepts external connections)
+- Port: 5000
+- Max file size: 16MB
+
+## Error Handling
+
+The API returns appropriate HTTP status codes and error messages:
+
+- `400`: Bad request (missing query, empty query, no documents)
+- `500`: Internal server error (API quota issues, processing failures)
+
+## Dependencies
+
+- Flask: Web framework
+- google-genai: Google Generative AI SDK
+- PyPDF2: PDF processing
+- pandas: Data manipulation
+- scikit-learn: Similarity calculations
+- numpy: Numerical operations
+- tenacity: Retry mechanisms
+
+## Limitations
+
+- In-memory vector database (not persistent)
+- PDF files only
+- Single language support
+- Requires Google Cloud authentication
+- API quota limitations may apply

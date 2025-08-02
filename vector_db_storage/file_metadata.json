@@ -1,0 +1,14 @@
+{
+  "./files-db\\1754126430903_gemini_v2_5_report.pdf": {
+    "hash": "a7089184320b391a358ac814d774c541",
+    "size": 10128209,
+    "mtime": 1754126430.9213219,
+    "path": "./files-db\\1754126430903_gemini_v2_5_report.pdf"
+  },
+  "./files-db\\1754126430922_claude_4_sonnet_opus.pdf": {
+    "hash": "17a1888054baf26d89d6b80acdc3be65",
+    "size": 4876911,
+    "mtime": 1754126430.9342258,
+    "path": "./files-db\\1754126430922_claude_4_sonnet_opus.pdf"
+  }
+}

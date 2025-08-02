@@ -1,7 +1,9 @@
-flask
-google-genai
-pypdf2
-numpy
-pandas
-scikit-learn
-tenacity 
+Flask==2.3.3
+Werkzeug==2.3.7
+google-genai>=0.3.0
+PyPDF2==3.0.1
+numpy==1.24.3
+pandas==2.0.3
+scikit-learn==1.3.2
+tenacity==8.2.3
+python-dotenv==1.0.0

@@ -162,7 +162,7 @@ import os
 
 PROJECT_ID = "supple-kayak-466408-a3"
 
-LOCATION = "us-central1"
+LOCATION = "asia-southeast1"
 
 """### Import libraries"""
 
