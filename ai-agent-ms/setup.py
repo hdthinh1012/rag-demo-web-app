@@ -349,13 +349,18 @@ def load_or_build_vector_db(
     upload_folder: str,
     embedding_client: Any,
     embedding_model: str,
-    storage_dir: str = "./vector_db_storage",
+    storage_dir: str = None,
     chunk_size: int = 4096,
     throttle_config: dict = None,
     progress_callback = None,
     force_rebuild: bool = False
 ) -> Optional[pd.DataFrame]:
     """Load existing vector database or build new one with smart file change detection"""
+    
+    # Set default storage directory if not provided (relative to this script)
+    if storage_dir is None:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        storage_dir = os.path.join(script_dir, "vector_db_storage")
     
     # Initialize persistence manager
     persistence_manager = VectorDBPersistenceManager(storage_dir, upload_folder)
@@ -435,8 +440,14 @@ def load_or_build_vector_db(
         print(f"❌ Error building vector database: {str(e)}")
         raise
 
-def get_storage_info(storage_dir: str = "./vector_db_storage") -> Dict:
+def get_storage_info(storage_dir: str = None) -> Dict:
     """Get information about stored vector database"""
+    
+    # Set default storage directory if not provided (relative to this script)
+    if storage_dir is None:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        storage_dir = os.path.join(script_dir, "vector_db_storage")
+    
     persistence_manager = VectorDBPersistenceManager(storage_dir)
     
     info = {

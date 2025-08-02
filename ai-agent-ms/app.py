@@ -54,11 +54,17 @@ CORS(app, resources={
 
 # Configuration
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
-UPLOAD_FOLDER = './files-db'
+
+# Get the directory where this script is located
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+# Create robust paths using os.path.join
+UPLOAD_FOLDER = os.path.join(SCRIPT_DIR, 'files-db')
+VECTOR_DB_STORAGE = os.path.join(SCRIPT_DIR, 'vector_db_storage')
 ALLOWED_EXTENSIONS = {'pdf', 'txt'}
 
-# Ensure upload folder exists
+# Ensure folders exist
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+os.makedirs(VECTOR_DB_STORAGE, exist_ok=True)
 
 # Global variables for RAG components
 vector_db = None
@@ -110,6 +116,7 @@ def initialize_rag_system(app):
             upload_folder=UPLOAD_FOLDER,
             embedding_client=client,
             embedding_model=text_embedding_model,
+            storage_dir=VECTOR_DB_STORAGE,
             throttle_config=throttle_config
         )
         
@@ -146,6 +153,7 @@ def rebuild_index(force_rebuild: bool = False):
             upload_folder=UPLOAD_FOLDER,
             embedding_client=client,
             embedding_model=text_embedding_model,
+            storage_dir=VECTOR_DB_STORAGE,
             throttle_config=throttle_config,
             force_rebuild=force_rebuild
         )
@@ -251,7 +259,7 @@ def generate_response():
 @app.route('/health', methods=['GET'])
 def health_check():
     """Health check endpoint with storage information"""
-    storage_info = get_storage_info()
+    storage_info = get_storage_info(VECTOR_DB_STORAGE)
     
     status = {
         'status': 'healthy',
@@ -292,7 +300,7 @@ def list_files():
 def storage_info():
     """Get detailed storage information"""
     try:
-        storage_info = get_storage_info()
+        storage_info = get_storage_info(VECTOR_DB_STORAGE)
         return jsonify(storage_info)
     except Exception as e:
         return jsonify({'error': f'Failed to get storage info: {str(e)}'}), 500
@@ -305,7 +313,7 @@ def force_rebuild():
         if success:
             return jsonify({
                 'message': 'Vector database rebuilt successfully',
-                'storage_info': get_storage_info()
+                'storage_info': get_storage_info(VECTOR_DB_STORAGE)
             })
         else:
             return jsonify({'error': 'Failed to rebuild vector database'}), 500

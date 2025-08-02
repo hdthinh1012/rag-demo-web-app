@@ -3542,3 +3542,6 @@ TypeError: Client.__init__() got an unexpected keyword argument 'service_account
 2025-08-02 19:29:19,202 INFO app Generating text response...
 2025-08-02 19:29:21,467 INFO app Text response generated successfully
 2025-08-02 19:29:21,472 INFO werkzeug 127.0.0.1 - - [02/Aug/2025 19:29:21] "POST /generate-response HTTP/1.1" 200 -
+2025-08-02 22:28:57,603 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-02 22:28:57,603 INFO werkzeug [33mPress CTRL+C to quit[0m
