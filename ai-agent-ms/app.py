@@ -1,4 +1,10 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+CREDENTIALS_FOLDER = os.path.join(SCRIPT_DIR, 'credentials')
+
 import asyncio
 import glob
 import time

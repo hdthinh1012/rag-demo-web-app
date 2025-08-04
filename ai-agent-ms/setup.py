@@ -11,8 +11,16 @@ import numpy as np
 import pandas as pd
 from google import genai
 from google.genai import types
+from google.oauth2 import service_account
 from sklearn.metrics.pairwise import cosine_similarity
 from tenacity import retry, stop_after_attempt, wait_random_exponential
+from dotenv import load_dotenv
+
+# Get the directory where this script is located
+load_dotenv()
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+CREDENTIALS_FOLDER = os.path.join(SCRIPT_DIR, 'credentials')
+
 
 # Section 1.5: Persistent Storage Manager
 class VectorDBPersistenceManager:
@@ -177,6 +185,7 @@ class VectorDBPersistenceManager:
                 is_incremental=True
             )
             vector_db = pd.concat([vector_db, new_chunks_df], ignore_index=True)
+
         
         return vector_db
 
@@ -186,10 +195,12 @@ def setup_genai_client(app):
         """Initialize the GenAI client for Vertex AI"""
         PROJECT_ID = os.getenv("PROJECT_ID", "personal-rag-ai-agent")
         LOCATION = os.getenv("LOCATION", "asia-southeast1")
+        SERVICE_ACCOUNT_CREDENTIALS_PATH = os.path.join(CREDENTIALS_FOLDER, os.getenv("SERVICE_ACCOUNT_CREDENTIALS"))
+        # credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_CREDENTIALS_PATH)
+        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = SERVICE_ACCOUNT_CREDENTIALS_PATH
         
         client = genai.Client(
             vertexai=True,
-            credentials=os.getenv("SERVICE_ACCOUNT_CREDENTIALS"),
             project=PROJECT_ID,
             location=LOCATION
         )
