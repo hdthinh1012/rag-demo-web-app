@@ -32,17 +32,73 @@ PROJECT_ID=your-google-cloud-project-id
 LOCATION=asia-southeast1
 ```
 
-### 3. Google Cloud Authentication
+### 3. Google Vertex AI Authentication
 
-Make sure you have Google Cloud SDK installed and authenticated:
+This application uses the `google.genai` library with Vertex AI for generative AI capabilities. Service account authentication is required for production use.
 
+#### 3.1. Create Service Account
+
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/)
+2. Navigate to **IAM & Admin** > **Service Accounts**
+3. Click **Create Service Account**
+4. Fill in the service account details:
+   - **Name**: `ai-agent-service-account` (or your preferred name)
+   - **Description**: Service account for AI Agent RAG application
+5. Click **Create and Continue**
+
+#### 3.2. Grant Required Permissions
+
+Assign the following roles to your service account:
+- **Vertex AI User** (`roles/aiplatform.user`)
+- **ML Developer** (`roles/ml.developer`)
+- **Service Usage Consumer** (`roles/serviceusage.serviceUsageConsumer`)
+
+#### 3.3. Download Service Account Key
+
+1. In the **Service Accounts** page, find your newly created service account
+2. Click on the service account email
+3. Go to the **Keys** tab
+4. Click **Add Key** > **Create new key**
+5. Select **JSON** format
+6. Click **Create** - the JSON key file will be downloaded
+
+#### 3.4. Configure Authentication
+
+1. Create a `credentials` folder in your project directory:
+   ```bash
+   mkdir credentials
+   ```
+
+2. Move the downloaded JSON key file to the credentials folder:
+   ```bash
+   mv ~/Downloads/your-service-account-key.json ./credentials/
+   ```
+
+3. Set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable:
+
+   **Windows (PowerShell):**
+   ```powershell
+   $env:GOOGLE_APPLICATION_CREDENTIALS="./credentials/your-service-account-key.json"
+   ```
+
+   **Linux/macOS:**
+   ```bash
+   export GOOGLE_APPLICATION_CREDENTIALS="./credentials/your-service-account-key.json"
+   ```
+
+4. Update your `.env` file:
+   ```bash
+   PROJECT_ID=your-google-cloud-project-id
+   LOCATION=asia-southeast1
+   SERVICE_ACCOUNT_CREDENTIALS=./credentials/your-service-account-key.json
+   ```
+
+#### 3.5. Enable Required APIs
+
+Make sure the following APIs are enabled in your Google Cloud project:
 ```bash
-gcloud auth application-default login
-```
-
-Or set up a service account key:
-```bash
-export GOOGLE_APPLICATION_CREDENTIALS=path/to/your/service-account-key.json
+gcloud services enable aiplatform.googleapis.com
+gcloud services enable generativelanguage.googleapis.com
 ```
 
 ## Usage
