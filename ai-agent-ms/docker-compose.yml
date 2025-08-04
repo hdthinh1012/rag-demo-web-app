@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  ai-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - PROJECT_ID=${PROJECT_ID:-personal-rag-ai-agent}
+      - LOCATION=${LOCATION:-asia-southeast1}
+      - FLASK_ENV=production
+      - FLASK_DEBUG=0
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials/service-account.json
+    volumes:
+      # Mount credentials (you need to create this locally)
+      - ./credentials:/app/credentials:ro
+      # Mount persistent storage for uploaded files
+      - ai-agent-files:/app/files-db
+      # Mount persistent storage for vector database
+      - ai-agent-vectordb:/app/vector_db_storage
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  ai-agent-files:
+    driver: local
+  ai-agent-vectordb:
+    driver: local
