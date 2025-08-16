@@ -1,0 +1,1 @@
+docker build -t hdthinh1012/ai-agent-ms:latest .

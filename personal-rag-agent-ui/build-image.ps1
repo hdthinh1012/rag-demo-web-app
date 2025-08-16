@@ -1,0 +1,1 @@
+docker build -t hdthinh1012/personal-rag-agent-ui:latest .
