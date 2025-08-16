@@ -20,6 +20,10 @@ RUN mkdir -p /etc/nginx/ssl \
 
 # Copy custom nginx configuration
 COPY nginx.conf /etc/nginx/nginx.conf
+COPY ai-agent-locations.conf /etc/nginx/conf.d/ai-agent-locations.conf
+
+# Copy certs
+COPY certs/ /etc/nginx/ssl/
 
 # Copy and set up health check script
 COPY health-check.sh /usr/local/bin/health-check.sh
@@ -30,7 +34,7 @@ RUN chown -R nginx:nginx /etc/nginx/ssl
 
 # Expose HTTP port (HTTPS port 443 ready for future)
 EXPOSE 80
-# EXPOSE 443  # Uncomment when SSL is implemented
+EXPOSE 443
 
 # Add health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \

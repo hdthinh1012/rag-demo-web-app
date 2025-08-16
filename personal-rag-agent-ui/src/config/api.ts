@@ -6,7 +6,7 @@ export const API_CONFIG = {
     files: '/files',
     storageInfo: '/storage/info',
   },
-  timeout: 30000, // 30 seconds
+  timeout: 120000, // 2 minutes
 };
 
 export const getApiUrl = (endpoint: keyof typeof API_CONFIG.endpoints): string => {
