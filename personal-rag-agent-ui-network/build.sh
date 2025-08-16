@@ -1,0 +1,2 @@
+docker build -t hdthinh1012/personal-rag-agent-ui-nginx-sidecar:latest -f personal-rag-agent-ui-nginx-sidecar/Dockerfile personal-rag-agent-ui-nginx-sidecar/
+docker build -t hdthinh1012/personal-rag-agent-ui:latest -f personal-rag-agent-ui/Dockerfile personal-rag-agent-ui/
