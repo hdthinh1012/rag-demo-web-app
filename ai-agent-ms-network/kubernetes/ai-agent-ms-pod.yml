@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ai-agent-ms-pod
+  labels:
+    app: ai-agent-ms
+spec:
+  containers:
+  - name: ai-agent-ms
+    image: docker.io/hdthinh1012/ai-agent-ms:latest
+    ports:
+    - containerPort: 5000
+  - name: ai-agent-ms-nginx
+    image: docker.io/hdthinh1012/ai-agent-ms-nginx:latest
+    ports:
+    - containerPort: 443
+  restartPolicy: Always
+  volumes:
+  - name: ai-agent-ms-volume
+    emptyDir: {}
+  - name: ai-agent-ms-nginx-volume
+    emptyDir: {}
+imagePullPolicy: Never
