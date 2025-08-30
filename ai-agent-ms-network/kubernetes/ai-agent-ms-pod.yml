@@ -7,17 +7,38 @@ metadata:
 spec:
   containers:
   - name: ai-agent-ms
-    image: docker.io/hdthinh1012/ai-agent-ms:latest
+    image: hdthinh1012/ai-agent-ms:latest
+    imagePullPolicy: IfNotPresent 
     ports:
     - containerPort: 5000
+    volumeMounts:
+    # Volume for vector database storage
+    - name: vector-db-storage
+      mountPath: /app/vector_db_storage
+    # Volume for uploaded files
+    - name: files-db-storage
+      mountPath: /app/files-db
+
   - name: ai-agent-ms-nginx
-    image: docker.io/hdthinh1012/ai-agent-ms-nginx:latest
+    image: hdthinh1012/ai-agent-ms-nginx:latest
+    imagePullPolicy: IfNotPresent 
     ports:
     - containerPort: 443
+    volumeMounts:
+    - name: nginx-ssl-certs
+      mountPath: /etc/nginx/ssl
+      readOnly: true  # Important: certificates should be read-only
   restartPolicy: Always
+
   volumes:
-  - name: ai-agent-ms-volume
-    emptyDir: {}
-  - name: ai-agent-ms-nginx-volume
-    emptyDir: {}
-imagePullPolicy: Never
+  # Persistent storage for vector database
+  - name: vector-db-storage
+    emptyDir: {}  # or use persistentVolumeClaim for true persistence
+  # Persistent storage for uploaded files  
+  - name: files-db-storage
+    emptyDir: {}  # or use persistentVolumeClaim for true persistence
+  # SSL certificates from Kubernetes Secret
+  - name: nginx-ssl-certs
+    secret:
+      secretName: nginx-ssl-certs
+      defaultMode: 0400

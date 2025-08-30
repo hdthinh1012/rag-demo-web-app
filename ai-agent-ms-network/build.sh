@@ -1,2 +1,5 @@
-docker build -t hdthinh1012/ai-agent-ms:latest -f ai-agent-ms/Dockerfile ai-agent-ms/
-docker build -t hdthinh1012/ai-agent-ms-nginx:latest -f ai-agent-ms-nginx/Dockerfile ai-agent-ms-nginx/
+docker build -t $(minikube ip):53507/hdthinh1012/ai-agent-ms:latest ai-agent-ms/
+docker build -t $(minikube ip):53507/hdthinh1012/ai-agent-ms-nginx:latest ai-agent-ms-nginx/
+
+docker push $(minikube ip):53507/hdthinh1012/ai-agent-ms:latest
+docker push $(minikube ip):53507/hdthinh1012/ai-agent-ms-nginx:latest

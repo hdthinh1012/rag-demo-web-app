@@ -23,7 +23,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY ai-agent-locations.conf /etc/nginx/conf.d/ai-agent-locations.conf
 
 # Copy certs
-COPY certs/ /etc/nginx/ssl/
+# COPY certs/ /etc/nginx/ssl/
 
 # Copy and set up health check script
 COPY health-check.sh /usr/local/bin/health-check.sh

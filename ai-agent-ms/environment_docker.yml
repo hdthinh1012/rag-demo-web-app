@@ -2,6 +2,7 @@ name: rag-demo
 channels:
   - conda-forge
   - defaults
+  - conda
 dependencies:
   - blas=1.0
   - blinker=1.9.0

@@ -8,7 +8,12 @@ WORKDIR /app
 COPY environment_docker.yml /app/environment.yml
 
 # Create conda environment
+
 RUN conda env create -f environment.yml
+
+RUN conda activate rag-demo
+
+RUN CONDA_VERBOSITY=3 conda init 
 
 # Make RUN commands use the new environment
 SHELL ["conda", "run", "-n", "rag-demo", "/bin/bash", "-c"]
